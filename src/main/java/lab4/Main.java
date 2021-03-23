@@ -1,9 +1,10 @@
-package lab3;
+package lab4;
 
 import lab2.Json;
 
 import javax.xml.bind.JAXBException;
-import java.io.IOException;
+import java.io.*;
+import java.util.Date;
 
 public class Main {
 
@@ -24,17 +25,22 @@ public class Main {
         user1.cart.addItem(item1);
         shop.makeOrder(shop, user1);
 
+
         shop.orders.get(0).getItems();
 
-     /*   Json json = new Json();
+        Json json = new Json();
         json.saveJSON(shop);
+
+        Database database = new Database();
+        int i = database.saveToDB(shop);
+        database.loadFromDB();
+        database.searchInDB();
+        database.sortByASC();
 
         XML xml = new XML();
 
         Shop shop1 = xml.loadXML();
         shop1.findUserByEmail("mail@mail.to");
-        shop1.getSortedCategories();*/
-
-
+        shop1.getSortedCategories();
     }
 }
